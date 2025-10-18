@@ -1,0 +1,105 @@
+# 🏫 Club Educativo Digital
+
+## 🌐 Descripción del Proyecto
+**Club Educativo Digital** es una plataforma web desarrollada con **HTML, CSS y JavaScript** que permite gestionar equipos, partidos, resultados y galerías de fotos dentro de un entorno educativo.  
+El objetivo principal es **fomentar la participación estudiantil y la organización escolar** mediante una herramienta digital moderna, atractiva y fácil de usar.  
+
+El proyecto fue desarrollado aplicando la metodología ágil **Scrum**, priorizando la colaboración, la mejora continua y la entrega de valor en cada iteración.
+
+---
+
+## 👥 Equipo Scrum
+
+| Rol | Nombre |
+|------|---------|
+| 🎯 **Product Owner** | Maite Alexa Méndez Rocha |
+| 👨‍💼 **Scrum Master** | Royxel Bury Rojas |
+| 💻 **Desarrolladores** | Bruno Dos Santos Vásquez |
+| 💻 **Desarrolladores** | Mario Quispe Herrera |
+| 💻 **Desarrolladores** | Brenda Ayhelen Barja Machon |
+
+---
+
+## 🧩 Requerimientos Funcionales
+
+### 1. Gestión de Equipos
+- RF1. Permitir el **registro de equipos** con nombre y color representativo.  
+- RF2. Validar que los nombres de equipos contengan solo **letras y espacios**.  
+- RF3. Mostrar una **lista de equipos registrados**, con opción de eliminar.  
+- RF4. Permitir **cargar equipos de ejemplo** automáticamente.
+
+### 2. Gestión de Partidos
+- RF5. Permitir **crear partidos** seleccionando equipo local, visitante y fecha/hora.  
+- RF6. Validar que un equipo **no pueda enfrentarse a sí mismo**.  
+- RF7. Mostrar una **lista de partidos programados**.  
+- RF8. Permitir **editar o eliminar** partidos existentes.
+
+### 3. Registro de Resultados
+- RF9. Habilitar un **modal interactivo** para registrar o editar resultados.  
+- RF10. Validar que los goles sean **números válidos y no negativos**.  
+- RF11. Guardar los resultados y marcar el partido como **jugado**.  
+- RF12. Mostrar una **lista actualizada de resultados** con fecha y marcador.
+
+### 4. Estadísticas y Tablas
+- RF13. Generar una **tabla de posiciones (Leaderboard)** con puntos, goles y partidos jugados.  
+- RF14. Calcular **victorias, empates, derrotas y porcentaje de efectividad** por equipo.  
+- RF15. Mostrar estadísticas generales (total de equipos, partidos, jugados y próximo partido).
+
+### 5. Galería Multimedia
+- RF16. Permitir **subir imágenes** desde el dispositivo del usuario.  
+- RF17. Validar que los archivos sean **imágenes válidas**.  
+- RF18. Mostrar una **galería visual** con descripciones y fechas.  
+- RF19. Permitir **eliminar fotos** cargadas.
+
+### 6. Persistencia y Navegación
+- RF20. Guardar toda la información en el **LocalStorage**.  
+- RF21. Cargar automáticamente los datos guardados al iniciar el sitio.  
+- RF22. Incluir **navegación por secciones** (Inicio, Equipos, Partidos, Resultados, Galería).  
+- RF23. Agregar un **menú hamburguesa adaptable** para dispositivos móviles.  
+- RF24. Permitir **navegar sin recargar la página**.
+
+---
+
+## ⚙️ Requerimientos No Funcionales
+
+### 1. Usabilidad
+- RNF1. Interfaz **intuitiva y atractiva**, orientada a estudiantes y docentes.  
+- RNF2. Incluir **mensajes claros** de error, confirmación y validación.  
+- RNF3. Mantener una estructura visual coherente con la identidad educativa.
+
+### 2. Rendimiento
+- RNF4. Funcionar como **aplicación de una sola página (SPA)** sin recargas.  
+- RNF5. Mantener **tiempos de carga rápidos** gracias a su estructura ligera.  
+
+### 3. Fiabilidad
+- RNF6. La información persiste entre sesiones mediante **LocalStorage**.  
+- RNF7. Manejar correctamente **entradas vacías o inválidas** para evitar errores.
+
+### 4. Compatibilidad
+- RNF8. Diseño **responsive**, adaptable a celulares, tablets y computadoras.  
+- RNF9. Compatible con navegadores modernos (Chrome, Edge, Firefox, Safari).
+
+### 5. Mantenibilidad y Diseño
+- RNF10. Código **modular y bien estructurado** en JavaScript.  
+- RNF11. Uso de **animaciones suaves y colores vibrantes** sin afectar el rendimiento.  
+
+---
+
+## 🚀 Tecnologías Utilizadas
+- 🧱 **HTML5** — Estructura del sitio web.  
+- 🎨 **CSS3** — Estilos visuales y diseño adaptable.  
+- ⚙️ **JavaScript** — Lógica, interactividad y almacenamiento local.  
+- ☁️ **LocalStorage** — Persistencia de datos en el navegador.
+
+---
+
+## 🖼️ Foto del Equipo
+
+> 📸 Agrega aquí la foto de tu equipo.  
+> Para mostrarla en GitHub, guarda la imagen en tu repositorio (por ejemplo en la carpeta `img/`)  
+> y reemplaza el nombre del archivo en el siguiente enlace:
+p align="center">
+  <img src="WhatsApp Image 2025-10-11 at 11.50.51.jpeg" alt="LIGA ESCOLAR DIGIT" width="400">
+</p>
+```markdown
+![Equipo Club Educativo Digital](img/equipo.jpg)

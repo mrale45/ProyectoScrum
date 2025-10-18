@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Liga Escolar Digital</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="brand">
+                <!-- Logo simple SVG -->
+                <svg class="logo" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0" stop-color="#ff6b35" />
+                            <stop offset="1" stop-color="#f7b32b" />
+                        </linearGradient>
+                    </defs>
+                    <rect rx="14" width="80" height="80" fill="url(#g1)"></rect>
+                    <g transform="translate(12,20)" fill="#fff" font-weight="900"
+                        font-family="Arial Black, Roboto, Arial">
+                        <text x="0" y="22" font-size="34">L</text>
+                        <text x="22" y="22" font-size="18">ED</text>
+                    </g>
+                </svg>
+                <div>
+                    <h1 class="title">Liga Escolar Digital</h1>
+                    <p class="subtitle">¡Donde el espíritu escolar se convierte en competencia!</p>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <button class="nav-btn" data-target="dashboard">Inicio</button>
+                <button class="nav-btn" data-target="teams">Equipos</button>
+                <button class="nav-btn" data-target="schedule">Partidos</button>
+                <button class="nav-btn" data-target="played">Jugados</button>
+                <button class="nav-btn" data-target="results">Resultados</button>
+                <button class="nav-btn" data-target="gallery">Galería</button>
+            </nav>
+            
+            <!-- Menú móvil hamburguesa -->
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Menú móvil desplegable -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-nav-btn" data-target="dashboard">Inicio</button>
+            <button class="mobile-nav-btn" data-target="teams">Equipos</button>
+            <button class="mobile-nav-btn" data-target="schedule">Partidos</button>
+            <button class="mobile-nav-btn" data-target="played">Jugados</button>
+            <button class="mobile-nav-btn" data-target="results">Resultados</button>
+            <button class="mobile-nav-btn" data-target="gallery">Galería</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active">
+            <div class="grid">
+                <div class="card stat">
+                    <h3 id="totalEquipos">0</h3>
+                    <p>Equipos registrados</p>
+                </div>
+                <div class="card stat">
+                    <h3 id="totalPartidos">0</h3>
+                    <p>Partidos programados</p>
+                </div>
+                <div class="card stat">
+                    <h3 id="partidosJugados">0</h3>
+                    <p>Partidos jugados</p>
+                </div>
+                <div class="card stat">
+                    <h3 id="proximaFecha">—</h3>
+                    <p>Próximo partido</p>
+                </div>
+            </div>
+
+            <section class="card wide">
+                <h2>Tabla rápida 🏆</h2>
+                <div id="leaderboard" class="leaderboard">No hay equipos aún.</div>
+            </section>
+        </section>
+
+        <!-- TEAMS -->
+        <section id="teams" class="page">
+            <div class="card">
+                <h2>Registrar Equipo</h2>
+                <div class="form-row">
+                    <input id="teamName" placeholder="Nombre del equipo (solo letras)" maxlength="30" />
+                    <input id="teamColor" type="color" title="Color del equipo" />
+                    <button id="addTeamBtn" class="primary">Agregar equipo</button>
+                    <button id="sampleTeams" class="ghost">Cargar ejemplo</button>
+                </div>
+            </div>
+
+            <ul id="teamsList" class="list"></ul>
+        </section>
+
+        <!-- SCHEDULE -->
+        <section id="schedule" class="page">
+            <div class="card">
+                <h2>Crear Partido</h2>
+                <div class="form-row">
+                    <select id="selHome"></select>
+                    <select id="selAway"></select>
+                    <input id="dateMatch" type="datetime-local" />
+                    <button id="createMatchBtn" class="primary">Crear partido</button>
+                </div>
+            </div>
+
+            <ul id="scheduleList" class="list"></ul>
+        </section>
+
+        <!-- PLAYED TEAMS -->
+        <section id="played" class="page">
+            <div class="card wide">
+                <h2>⚽ Equipos Jugados</h2>
+                <p style="color: var(--muted); margin: 10px 0 20px 0;">Estadísticas de todos los equipos que han
+                    participado en partidos</p>
+            </div>
+            <div id="teamsPlayedContainer" class="teams-played-grid"></div>
+        </section>
+
+        <!-- RESULTS -->
+        <section id="results" class="page">
+            <div class="card">
+                <h2>📊 Resultados</h2>
+                <ul id="resultsList" class="list"></ul>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery" class="page">
+            <div class="card wide">
+                <h2>📸 Galería</h2>
+                <p style="color: var(--muted); margin: 10px 0 20px 0;">Fotos y momentos destacados de la liga</p>
+                <div class="form-row">
+                    <input id="photoCaption" type="text" placeholder="Descripción de la foto" maxlength="100" />
+                    <input id="photoFile" type="file" accept="image/*" style="display:none" />
+                    <button id="uploadPhotoBtn" class="primary">📷 Subir foto</button>
+                </div>
+            </div>
+            <div id="galleryGrid" class="gallery-grid">
+                <div class="card gallery-item">
+                    <div class="gallery-placeholder">📸</div>
+                    <p style="text-align: center; margin-top: 12px; font-weight: 700;">No hay fotos aún</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para resultados -->
+    <div id="modal" class="modal" aria-hidden="true">
+        <div class="modal-panel" role="dialog" aria-modal="true">
+            <button id="closeModal" class="close" aria-label="Cerrar">&times;</button>
+            <h3 id="modalTitle">Registrar Resultado</h3>
+            <div class="modal-body">
+                <div class="score-row">
+                    <div class="team-block">
+                        <div id="mHomeBadge" class="badge"></div>
+                        <div id="mHomeName" class="team-name"></div>
+                        <input id="mHomeGoals" type="number" min="0" value="0" />
+                    </div>
+                    <div class="vs">vs</div>
+                    <div class="team-block">
+                        <div id="mAwayBadge" class="badge"></div>
+                        <div id="mAwayName" class="team-name"></div>
+                        <input id="mAwayGoals" type="number" min="0" value="0" />
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="saveResult" class="primary">Guardar</button>
+                    <button id="clearResult" class="ghost">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="left">
+                <div class="mini-logo" aria-hidden>
+                    <svg viewBox="0 0 40 40">
+                        <rect rx="8" width="40" height="40" fill="#fff" />
+                    </svg>
+                </div>
+                <div>
+                    <strong>Liga Escolar Digital</strong>
+                    <div class="tagline">Plataforma oficial – Espíritu y fair play</div>
+                </div>
+            </div>
+
+            <div class="center">
+                <div id="footerStats">0 equipos • 0 partidos</div>
+            </div>
+
+            <div class="right">
+                <!-- Redes con SVGs -->
+                <a class="social" href="#" title="Facebook" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54v-2.205c0-2.716 1.693-4.233 4.106-4.233 1.19 0 2.436.212 2.436.212v2.68h-1.374c-1.353 0-1.772.841-1.772 1.7V12h3.021l-.483 2.89h-2.538v6.989C18.343 21.129 22 16.99 22 12z" />
+                    </svg>
+                </a>
+                <a class="social" href="#" title="Instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.756 0 8.331.012 7.053.07 2.695.272.273 2.69.07 7.052.012 8.331 0 8.756 0 12c0 3.244.011 3.668.07 4.948.202 4.358 2.612 6.78 6.979 6.98 1.281.058 1.7.07 4.948.07 3.247 0 3.668-.012 4.947-.07 4.358-.2 6.79-2.622 6.972-6.98.057-1.28.07-1.704.07-4.947 0-3.246-.015-3.668-.072-4.948-.2-4.358-2.618-6.78-6.98-6.98C15.668.012 15.259 0 12 0z" />
+                    </svg>
+                </a>
+                <a class="social" href="#" title="TikTok" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-2.4-2.4c.26 0 .52.03.77.1V9.24a5.6 5.6 0 0 0-.9-.08C5.11 9.16 2 12.65 2 16.92c0 2.16.84 4.13 2.53 5.54 1.5 1.19 3.76 1.88 6.12 1.91 2.75.04 5.37-1.03 7.18-2.87 1.52-1.51 2.16-3.53 2.16-5.65V10.88c1.35 1.02 3.01 1.61 4.80 1.66v-3.4c-1.38-.16-2.7-.62-3.8-1.45z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sección del equipo -->
+        <div class="team-section">
+            <h3 class="team-title">🏆 Nuestro Equipo 🏆</h3>
+            <div class="team-grid">
+                <div class="team-member scrum">
+                    <div class="role-badge">👨‍💼 SCRUM MASTER</div>
+                    <div class="member-name">Royxel Bury Rojas</div>
+                </div>
+                <div class="team-member owner">
+                    <div class="role-badge">🎯 PRODUCT OWNER</div>
+                    <div class="member-name">Maite Alexa Méndez Rocha</div>
+                </div>
+                <div class="team-member dev">
+                    <div class="role-badge">💻 DESARROLLADOR</div>
+                    <div class="member-name">Bruno Dos Santos Vásquez</div>
+                </div>
+                <div class="team-member dev">
+                    <div class="role-badge">💻 DESARROLLADOR</div>
+                    <div class="member-name">Mario Quispe Herrera</div>
+                </div>
+                <div class="team-member dev">
+                    <div class="role-badge">💻 DESARROLLADOR</div>
+                    <div class="member-name">Brenda Ayhelen Barja Machon</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
